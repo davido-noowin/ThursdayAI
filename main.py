@@ -29,12 +29,16 @@ def main():
 
                 if 'Thursday' in said:
                     if 'stop' in said:
-                        os.remove(PATH / "welcome1.mp3")
+                        text = 'goodbye'
+                        speech = gTTS(text=text, lang=LANG, slow=False, tld="co.uk")
+                        speech.save(PATH / "message.mp3")
+                        playsound.playsound(PATH / "message.mp3")
+                        os.remove(PATH / "message.mp3")
                         break
                     text = 'how can I be of assistance?'
-                    speech = gTTS(text=text, lang=LANG, slow=False, tld="com.au")
-                    speech.save(PATH / "welcome1.mp3")
-                    playsound.playsound(PATH / "welcome1.mp3")
+                    speech = gTTS(text=text, lang=LANG, slow=False, tld="co.uk")
+                    speech.save(PATH / "message.mp3")
+                    playsound.playsound(PATH / "message.mp3")
 
             except Exception as e:
                 print(e)
